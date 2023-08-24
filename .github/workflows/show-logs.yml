@@ -12,16 +12,16 @@ jobs:
         with:
           host: capstone-project.de
           #Set App Name (replace "example" with your ssh user name)
-          username: bo-java-23-2-pokemon
+          username: bo-java-23-2-alex
           password: ${{ secrets.SSH_PASSWORD }}
           #Set App Name (replace "example" with your ssh user name)
           script: |
-            sudo docker logs bo-java-23-2-pokemon
+            sudo docker logs bo-java-23-2-alex
       - name: Check the deployed service URL
         uses: jtalk/url-health-check-action@v3
         with:
           #Set App Name (replace "example" with your ssh user name)
-          url: http://bo-java-23-2-pokemon.capstone-project.de
+          url: http://bo-java-23-2-alex.capstone-project.de
           max-attempts: 3
           retry-delay: 5s
           retry-all: true

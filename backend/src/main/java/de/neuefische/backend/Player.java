@@ -13,4 +13,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Player {
     String id;
     String name;
+    String rank;
+    String rank_score;
+    String level;
+    String kills;
+    String damage;
+    String wins;
 }

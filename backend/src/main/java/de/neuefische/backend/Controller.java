@@ -22,6 +22,10 @@ public class Controller {
     public Player getPlayerById(@PathVariable String id) throws PlayerDoesNotExistException{
         return service.getPlayerById(id);
     }
+    @GetMapping("/name/{name}")
+    public Player getPlayerByName(@PathVariable String name) throws PlayerDoesNotExistException{
+        return service.getPlayerByName(name);
+    }
 
     @PostMapping("/{id}")
     public void addPlayer(@RequestBody Player player) throws PlayerAlreadyExistException{

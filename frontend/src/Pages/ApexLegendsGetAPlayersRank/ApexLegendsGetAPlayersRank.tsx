@@ -1,7 +1,7 @@
 import "./ApexLegendsGetAPlayersRank.css"
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {Modal, Button} from "react-bootstrap";
+import {Button, Modal} from "react-bootstrap";
 
 type Player = {
     id: string;

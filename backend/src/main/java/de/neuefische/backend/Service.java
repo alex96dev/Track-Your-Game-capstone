@@ -27,6 +27,12 @@ public class Service {
         }
         return repository.findById(id).orElse(null);
     }
+    public Player getPlayerByName(String name) throws PlayerDoesNotExistException {
+        if (!repository.existsPlayerByName(name)){
+            throw new PlayerDoesNotExistException("Player does not exist");
+        }
+        return repository.findPlayerByName(name);
+    }
 
     public List<Player> getAllPlayer() {
         List<Player> listOfAllPlayer = repository.findAll();
@@ -46,4 +52,5 @@ public class Service {
         }
         repository.save(player);
     }
+
 }

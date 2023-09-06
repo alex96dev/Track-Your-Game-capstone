@@ -87,7 +87,7 @@ export default function ApexLegendsGetAPlayersRank() {
                     </Modal.Header>
                     <Modal.Body>
                         <ul>
-                            {listofallplayer?.map(player => <li key={player.id}><p>{player.rank}: {player.name} </p></li>)}
+                            {listofallplayer?.map(player => <li key={player.id}><p>{player.name}</p></li>)}
                         </ul>
                     </Modal.Body>
                     <Modal.Footer>

@@ -6,12 +6,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@CrossOrigin
+@RequestMapping("/api/player")
 @AllArgsConstructor
 
-public class Controller {
+public class PlayerController {
 
-    public final Service service;
+    public final PlayerService service;
 
     @GetMapping("/listofallplayer")
     public List<Player> getAllPlayer(){
@@ -22,9 +23,15 @@ public class Controller {
     public Player getPlayerById(@PathVariable String id) throws PlayerDoesNotExistException{
         return service.getPlayerById(id);
     }
+
     @GetMapping("/name/{name}")
     public Player getPlayerByName(@PathVariable String name) throws PlayerDoesNotExistException{
         return service.getPlayerByName(name);
+    }
+
+    @GetMapping("/comparePlayer/{platform}/{platformUserIdentifier}")
+    public List<ResponseComparePlayer> comparePlayer(@PathVariable String platform, @PathVariable String platformUserIdentifier){
+        return service.comparePlayer(platform, platformUserIdentifier);
     }
 
     @PostMapping("/{id}")

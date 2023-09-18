@@ -1,3 +1,17 @@
 body {
     background-color: #780116;
 }
+
+.div1 {
+    border-style: solid;
+    border-radius: 15px;
+}
+
+.title {
+    font-family: Copperplate;
+    color: #F7B538;
+}
+
+.dropdown {
+    font-family: Copperplate;
+}

@@ -2,6 +2,7 @@ import "./ApexLegendsGetAPlayersRank.css"
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {Button, Modal} from "react-bootstrap";
+import {Navigate} from "react-router-dom";
 
 type Player = {
     id: string;
@@ -20,13 +21,14 @@ export default function ApexLegendsGetAPlayersRank() {
     const [playername, setPlayername] = useState("");
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
+    const [goToHomepage, setGoToHomepage] = useState(false);
 
     const [listofallplayer, setListofallplayer] = useState<Player[]>()
 
     useEffect(() => {
         axios({
             method: 'get',
-            url: "/api/listofallplayer",
+            url: "/api/player/listofallplayer",
         })
             .then((response) => {
                 setListofallplayer(response.data)
@@ -37,17 +39,18 @@ export default function ApexLegendsGetAPlayersRank() {
     const handleClose = () => setShow(false);
     const handleClose2 = () => setShow2(false);
     const handleShow = () => setShow(true);
-    const handleShow2 = () => {
+    const handleShow2 = () => setShow2(true);
 
-        setShow2(true);
 
+    if (goToHomepage) {
+        return <Navigate to="/"/>;
     }
 
     function getRank() {
 
         axios({
             method: 'get',
-            url: "/api/name/" + input,
+            url: "/api/player/name/" + input,
         })
             .then((response) => {
                 setPlayername(response.data.name);
@@ -58,25 +61,27 @@ export default function ApexLegendsGetAPlayersRank() {
     }
 
     return (
-        <div>
+        <div className={"div1"}>
             <h1>Get A Players Rank</h1>
-            <br/>
+            <hr/>
             <form>
                 <label className="label">Type in a players Name:</label><a> </a>
                 <input type="text" onChange={event => setInput(event.target.value)}/>
-                <Button onClick={getRank}>Show me the rank</Button>
+                <Button className="btn btn-warning" onClick={getRank}>Show me the rank</Button>
                 <br/>
                 <br/>
-                <Button onClick={handleShow2}>Show me all Player names (Top 100)</Button>
+                <Button className="btn btn-warning" onClick={handleShow2}>Show me all Player names (Top 100)</Button>
                 <br/>
                 <br/>
+                <hr/>
+                <Button className="btn btn-light" onClick={() => setGoToHomepage(true)}>Back to Homepage</Button>
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>See the players rank:</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>{playername} has rank {playerrank}</Modal.Body>
+                    <Modal.Body>"{playername}" has rank <mark>{playerrank}</mark></Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
+                        <Button variant="warning" onClick={handleClose}>
                             Close
                         </Button>
                     </Modal.Footer>
@@ -91,7 +96,7 @@ export default function ApexLegendsGetAPlayersRank() {
                         </ul>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose2}>
+                        <Button variant="warning" onClick={handleClose2}>
                             Close
                         </Button>
                     </Modal.Footer>

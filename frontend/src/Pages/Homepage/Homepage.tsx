@@ -64,12 +64,12 @@ function Homepage_Dropdown() {
     }
 
     return (
-        <div>
+        <div className={"div1"}>
             <div className={"title"}>
                 <h1>Track your Game</h1><br/>
             </div>
             <div className="dropdown">
-                <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                <button className="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                     {titleofdropdown1}
                 </button>
@@ -80,7 +80,7 @@ function Homepage_Dropdown() {
                     <li><a className="dropdown-item disabled" onClick={setTitleOfDropdown1CSGO}>CS:GO</a></li>
                 </ul>
                 <br/><br/>
-                <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                <button className="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                     {titleofdropdown2}
                 </button>
@@ -92,8 +92,8 @@ function Homepage_Dropdown() {
                         stats</a></li>
                     <li><a className="dropdown-item" onClick={setGetTop100Ranked}>Get Top 100 (ranked)</a></li>
                 </ul>
-            </div>
-            <br/><br/>
+
+            <br/><br/><br/>
             <button type="button" className="btn btn-light" onClick={() => {dropdownvalue1 === "Apex Legends" && dropdownvalue2 === "Get Top 100 (ranked)"?
                 setgoToTop100Page(true): dropdownvalue1 === "Apex Legends" && dropdownvalue2 === "Get a Players Rank"?
                     setgoToGetAPlayersRankPage(true): dropdownvalue1 === "Apex Legends" && dropdownvalue2 === "Compare 2 players stats"?
@@ -101,6 +101,7 @@ function Homepage_Dropdown() {
                             setgoToGetYourFavouritePlayersPage(true):null
             }}>Confirm
             </button>
+            </div>
         </div>
     )
 }

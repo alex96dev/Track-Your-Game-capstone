@@ -1,0 +1,31 @@
+.div1 {
+    font-family: Copperplate;
+    color: #F7B538;
+    border-style: solid;
+    border-radius: 15px;
+    padding: 5%;
+}
+
+.modal {
+    font-family: Copperplate;
+    color: black;
+}
+
+.buttons {
+
+}
+
+.btn-warning {
+    margin-left: 5.5%;
+    margin-right: 5.5%;
+}
+
+.list {
+    padding: 0px;
+}
+
+hr {
+    height: 3px;
+    background-color: #F7B538;
+    color: #F7B538;
+}

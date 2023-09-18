@@ -2,3 +2,13 @@ label {
     font-size: x-large;
     font-weight: bold;
 }
+
+.div1 {
+    font-family: Copperplate;
+    color: #F7B538;
+}
+
+.modal {
+    font-family: Copperplate;
+    color: black;
+}

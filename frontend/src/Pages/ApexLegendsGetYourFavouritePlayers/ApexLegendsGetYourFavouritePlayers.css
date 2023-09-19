@@ -11,6 +11,21 @@
     color: black;
 }
 
+.modalheader {
+    background-color: #780116;
+    color: #F7B538;
+}
+
+.modalbody {
+    background-color: #780116;
+    color: black;
+}
+
+.modalfooter {
+    background-color: #780116;
+    color: black;
+}
+
 .buttons {
 
 }

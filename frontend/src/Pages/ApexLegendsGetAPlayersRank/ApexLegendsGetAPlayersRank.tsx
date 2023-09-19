@@ -43,7 +43,7 @@ export default function ApexLegendsGetAPlayersRank() {
 
 
     if (goToHomepage) {
-        return <Navigate to="/"/>;
+        return <Navigate to="/Homepage_Dropdown"/>;
     }
 
     function getRank() {
@@ -65,11 +65,14 @@ export default function ApexLegendsGetAPlayersRank() {
             <h1>Get A Players Rank</h1>
             <hr/>
             <form>
+                <div className={"label_inputfield1"}>
                 <label className="label">Type in a players Name:</label><a> </a>
-                <input type="text" onChange={event => setInput(event.target.value)}/>
+                <input className={"inputfield_"} type="text" onChange={event => setInput(event.target.value)}/>
+                </div>
+                <div className={"showmetherank"}>
                 <Button className="btn btn-warning" onClick={getRank}>Show me the rank</Button>
-                <br/>
-                <br/>
+                </div>
+
                 <Button className="btn btn-warning" onClick={handleShow2}>Show me all Player names (Top 100)</Button>
                 <br/>
                 <br/>

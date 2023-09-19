@@ -5,13 +5,11 @@ import axios from "axios";
 import "./ApexLegendsCompare2PlayersStats.css"
 
 type type = {
-    type: {
-        stats: {
-            level: { rank: string, value: string }
-            kills: { rank: string, value: string }
-            damage: { rank: string, value: string }
-            matchesPlayed: { rank: string, value: string }
-        }
+    stats: {
+        level: { rank: string, value: string }
+        kills: { rank: string, value: string }
+        damage: { rank: string, value: string }
+        matchesPlayed: { rank: string, value: string }
     }
 }
 
@@ -24,8 +22,25 @@ type responseComparePlayer = {
         };
         segments: type[];
     }
+}
 
-
+const defaultResponseComparePlayer: responseComparePlayer = {
+    data: {
+        platformInfo: {
+            platformSlug: "Keine Daten vorhanden",
+            platformUserIdentifier: "Keine Daten vorhanden",
+            avatarUrl: "Keine Daten vorhanden",
+        },
+        segments: [{
+            stats: {
+                level: {rank: "Keine Daten vorhanden", value: "Keine Daten vorhanden"},
+                kills: {rank: "Keine Daten vorhanden", value: "Keine Daten vorhanden"},
+                damage: {rank: "Keine Daten vorhanden", value: "Keine Daten vorhanden"},
+                matchesPlayed: {rank: "Keine Daten vorhanden", value: "Keine Daten vorhanden"}
+            }
+        }
+        ]
+    }
 }
 
 export default function ApexLegendsCompare2PlayersStats() {
@@ -36,15 +51,15 @@ export default function ApexLegendsCompare2PlayersStats() {
     const [inputPlatform, setInputPlatform] = useState("");
     const [input2, setInput2] = useState("");
     const [inputPlatform2, setInputPlatform2] = useState("");
-    const [comparePlayerList1, setComparePlayerList1] = useState<[responseComparePlayer]>();
-    const [comparePlayerList2, setComparePlayerList2] = useState<[responseComparePlayer]>();
+    const [comparePlayerList1, setComparePlayerList1] = useState<responseComparePlayer>(() => defaultResponseComparePlayer);
+    const [comparePlayerList2, setComparePlayerList2] = useState<responseComparePlayer>(() => defaultResponseComparePlayer);
 
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
 
 
     if (goToHomepage) {
-        return <Navigate to="/"/>;
+        return <Navigate to="/Homepage_Dropdown"/>;
     }
 
     function comparePlayers() {
@@ -55,18 +70,16 @@ export default function ApexLegendsCompare2PlayersStats() {
         })
             .then((response) => {
                 setComparePlayerList1(response.data)
+
             })
-
-        axios({
-            method: 'get',
-            url: "/api/player/comparePlayer/" + inputPlatform2 + "/" + input2,
-        })
-            .then((response) => {
-                setComparePlayerList2(response.data)
-                handleShow()
+            .then(() => axios({
+                method: 'get',
+                url: "/api/player/comparePlayer/" + inputPlatform2 + "/" + input2,
             })
-
-
+                .then((response) => {
+                    setComparePlayerList2(response.data)
+                    handleShow()
+                }))
     }
 
     return (
@@ -77,51 +90,56 @@ export default function ApexLegendsCompare2PlayersStats() {
             <br/>
             <form>
                 <label>Name of Player 1:</label>
-                <input type={"text"} onChange={event => setInput1(event.target.value)}/>
+                <input className={"inputfield_"} type={"text"} onChange={event => setInput1(event.target.value)}/>
                 <label>Platform Player 1:</label>
-                <input type={"text"} onChange={event => setInputPlatform(event.target.value)}/>
+                <input className={"inputfield_"} type={"text"}
+                       onChange={event => setInputPlatform(event.target.value)}/>
                 <br/><br/>
                 <label>Name of Player 2:</label>
-                <input type={"text"} onChange={event => setInput2(event.target.value)}/>
+                <input className={"inputfield_"} type={"text"} onChange={event => setInput2(event.target.value)}/>
                 <label>Platform Player 2:</label>
-                <input type={"text"} onChange={event => setInputPlatform2(event.target.value)}/>
+                <input className={"inputfield_"} type={"text"}
+                       onChange={event => setInputPlatform2(event.target.value)}/>
             </form>
             <br/>
             <Button className="btn btn-warning" onClick={comparePlayers}>Compare</Button>
             <hr/>
             <Button className="btn btn-light" onClick={() => setGoToHomepage(true)}>Back to Homepage</Button>
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Comparison</Modal.Title>
+                <Modal.Header closeButton className={"modalheader"}>
+                    <Modal.Title><h2 className={"h2_compare"}>Comparison</h2></Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    <ul>
-                        {comparePlayerList1?.map(r => <li key={"1"}>
-                            <p>{r.data.platformInfo.platformUserIdentifier}</p>
-                            <p>{r.data.platformInfo.platformSlug}</p>
-                            <p>{r.data.platformInfo.avatarUrl}</p>
+                <Modal.Body className={"modalbody_compare"}>
+                    <ul className={"ul_compare"}>
+                        <form>
+                        <label className={"l1"}>Player1</label>
+                        <li className={"list1"}>
+                            <p><h5>Name: </h5>{comparePlayerList1.data.platformInfo.platformUserIdentifier !== null ? comparePlayerList1.data.platformInfo.platformUserIdentifier : "No Data"}</p>
+                            <p><h5>Platform: </h5>{comparePlayerList1.data.platformInfo.platformSlug !== null ? comparePlayerList1.data.platformInfo.platformSlug : "No Data"}</p>
+                            <p><h5>Avatar: </h5>{comparePlayerList1.data.platformInfo.avatarUrl !== null ? <img src={comparePlayerList1.data.platformInfo.avatarUrl} width={100} height={100}/> : "No Data"}</p>
                             <p></p>
-                            <p>rank: {r.data.segments[0].type.stats.level.rank} value:{r.data.segments[0].type.stats.level.value}</p>
-                            <p>rank: {r.data.segments[0].type.stats.damage.rank} value:{r.data.segments[0].type.stats.damage.value}</p>
-                            <p>rank: {r.data.segments[0].type.stats.kills.rank} value:{r.data.segments[0].type.stats.kills.value}</p>
-                            <p>rank: {r.data.segments[0].type.stats.matchesPlayed.rank} value:{r.data.segments[0].type.stats.matchesPlayed.value}</p>
-                        </li>)
-                        }
-                        {comparePlayerList2?.map(r => <li key={"2"}>
-                            <p>{r.data.platformInfo.platformUserIdentifier}</p>
-                            <p>{r.data.platformInfo.platformSlug}</p>
-                            <p>{r.data.platformInfo.avatarUrl}</p>
+                            <p><h5>level: </h5>rank: {comparePlayerList1.data.segments[0].stats.level.rank !== null ? comparePlayerList1.data.segments[0].stats.level.rank : "No Data"} | value:{comparePlayerList1.data.segments[0].stats.level.value !== null ? comparePlayerList1.data.segments[0].stats.level.value : "No Data"}</p>
+                            <p><h5>damage: </h5>rank: {comparePlayerList1.data.segments[0].stats.damage.rank !== null ? comparePlayerList1.data.segments[0].stats.damage.rank : "No Data"} | value:{comparePlayerList1.data.segments[0].stats.damage.value !== null ? comparePlayerList1.data.segments[0].stats.damage.value : "No Data"}</p>
+                            <p><h5>kills: </h5>rank: {comparePlayerList1.data.segments[0].stats.kills.rank !== null ? comparePlayerList1.data.segments[0].stats.kills.rank : "No Data"} | value:{comparePlayerList1.data.segments[0].stats.kills.value !== null ? comparePlayerList1.data.segments[0].stats.kills.value : "No Data"}</p>
+                            <p><h5>matches played: </h5>rank: {comparePlayerList1.data.segments[0].stats.matchesPlayed.rank !== null ? comparePlayerList1.data.segments[0].stats.matchesPlayed.rank : "No Data"} | value:{comparePlayerList1.data.segments[0].stats.matchesPlayed.value !== null ? comparePlayerList1.data.segments[0].stats.matchesPlayed.value : "No Data"}</p>
+                        </li>
+                        </form>
+                        <form>
+                        <label className={"l1"}>Player2</label>
+                        <li className={"list2"}>
+                            <p><h5>Name: </h5>{comparePlayerList2.data.platformInfo.platformUserIdentifier !== null ? comparePlayerList2.data.platformInfo.platformUserIdentifier : "No Data"}</p>
+                            <p><h5>Platform: </h5>{comparePlayerList2.data.platformInfo.platformSlug !== null ? comparePlayerList2.data.platformInfo.platformSlug: "No Data"}</p>
+                            <p><h5>Avatar: </h5>{comparePlayerList2.data.platformInfo.avatarUrl !== null ? <img src={comparePlayerList2.data.platformInfo.avatarUrl} width={100} height={100}/>: "No Data"}</p>
                             <p></p>
-                            <p>rank: {r.data.segments[0].type.stats.level.rank} value:{r.data.segments[0].type.stats.level.value}</p>
-                            <p>rank: {r.data.segments[0].type.stats.damage.rank} value:{r.data.segments[0].type.stats.damage.value}</p>
-                            <p>rank: {r.data.segments[0].type.stats.kills.rank} value:{r.data.segments[0].type.stats.kills.value}</p>
-                            <p>rank: {r.data.segments[0].type.stats.matchesPlayed.rank} value:{r.data.segments[0].type.stats.matchesPlayed.value}</p>
-                        </li>)
-                        }
-
+                            <p><h5>level: </h5>rank: {comparePlayerList2.data.segments[0].stats.level.rank!== null ? comparePlayerList2.data.segments[0].stats.level.rank: "No Data"} | value:{comparePlayerList2.data.segments[0].stats.level.value!== null ? comparePlayerList2.data.segments[0].stats.level.value: "No Data"}</p>
+                            <p><h5>damage: </h5>rank: {comparePlayerList2.data.segments[0].stats.damage.rank!== null ? comparePlayerList2.data.segments[0].stats.damage.rank: "No Data"} | value:{comparePlayerList2.data.segments[0].stats.damage.value!== null ? comparePlayerList2.data.segments[0].stats.damage.value: "No Data"}</p>
+                            <p><h5>kills: </h5>rank: {comparePlayerList2.data.segments[0].stats.kills.rank!== null ? comparePlayerList2.data.segments[0].stats.kills.rank: "No Data"} | value:{comparePlayerList2.data.segments[0].stats.kills.value!== null ? comparePlayerList2.data.segments[0].stats.kills.value: "No Data"}</p>
+                            <p><h5>matches played: </h5>rank: {comparePlayerList2.data.segments[0].stats.matchesPlayed.rank!== null ? comparePlayerList2.data.segments[0].stats.matchesPlayed.rank: "No Data"} | value:{comparePlayerList2.data.segments[0].stats.matchesPlayed.value!== null ? comparePlayerList2.data.segments[0].stats.matchesPlayed.value: "No Data"}</p>
+                        </li>
+                        </form>
                     </ul>
                 </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer className={"modalfooter"}>
                     <Button variant="warning" onClick={handleClose}>
                         Close
                     </Button>

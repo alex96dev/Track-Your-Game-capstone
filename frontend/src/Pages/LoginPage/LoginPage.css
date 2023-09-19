@@ -1,0 +1,30 @@
+.div1 {
+    min-width: 400px;
+}
+
+.inputfield1 {
+    min-width: 50%;
+    margin-bottom: 6px;
+}
+
+.inputfield2 {
+    min-width: 50%;
+    margin-bottom: 24px;
+}
+
+.inputfield {
+    max-width: 100%;
+    min-width: 70%;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: black;
+    background-color: #F7B538;
+}
+
+.button_div {
+    margin-bottom: 20px;
+}
+
+.registerlink{
+
+}

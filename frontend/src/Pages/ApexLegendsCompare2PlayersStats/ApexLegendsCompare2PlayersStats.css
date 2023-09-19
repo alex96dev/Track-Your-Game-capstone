@@ -2,3 +2,48 @@ body {
     font-family: Copperplate;
     color: #F7B538;
 }
+
+.modalbody_compare {
+    background-color: #780116;
+    color: #F7B538;
+}
+
+.list1{
+    border-style: outset;
+    border-radius: 15px;
+    border-width: 2px;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.list2{
+    border-style: outset;
+    border-radius: 15px;
+    border-width: 2px;
+    padding: 10px;
+}
+
+.ul_compare{
+    display: flex;
+    flex-wrap: nowrap;
+    padding-left: 0px;
+}
+
+h5{
+    font-family: Copperplate;
+    font-weight: bold;
+    color: aquamarine;
+}
+
+p{
+    font-family: Arial;
+    font-style: italic;
+}
+
+.l1{
+    color: aquamarine;
+}
+
+.h2_compare{
+    margin-bottom: 0px;
+}

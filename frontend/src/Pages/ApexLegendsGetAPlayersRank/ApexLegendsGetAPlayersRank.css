@@ -12,3 +12,15 @@ label {
     font-family: Copperplate;
     color: black;
 }
+
+.inputfield_{
+background-color: #F7B538;
+}
+
+.label_inputfield1 {
+    margin-bottom: 10px;
+}
+
+.showmetherank{
+    margin-bottom: 40px;
+}

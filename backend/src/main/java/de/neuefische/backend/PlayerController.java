@@ -3,6 +3,7 @@ package de.neuefische.backend;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -30,9 +31,14 @@ public class PlayerController {
     }
 
     @GetMapping("/comparePlayer/{platform}/{platformUserIdentifier}")
-    public List<ResponseComparePlayer> comparePlayer(@PathVariable String platform, @PathVariable String platformUserIdentifier){
+    public ResponseComparePlayer comparePlayer(@PathVariable String platform, @PathVariable String platformUserIdentifier){
         return service.comparePlayer(platform, platformUserIdentifier);
     }
+
+    /*@GetMapping("/comparePlayer/{platform}/{platformUserIdentifier}")
+    public ResponseComparePlayer comparePlayer(@PathVariable String platform, @PathVariable String platformUserIdentifier){
+        return new ResponseComparePlayer(new Data(new PlatformInfo("x", "x", "x"), List.of(new Type(new Stats(new Level("x","x"), new Kills("x", "x"), new Damage("x", "x"), new MatchesPlayed("x", "x"))))));
+    }*/
 
     @PostMapping("/{id}")
     public void addPlayer(@RequestBody Player player) throws PlayerAlreadyExistException{

@@ -35,7 +35,7 @@ export default function ApexLegendsTop100() {
 
 
     if (goToHomepage) {
-        return <Navigate to="/"/>;
+        return <Navigate to="/Homepage_Dropdown"/>;
     }
 
 

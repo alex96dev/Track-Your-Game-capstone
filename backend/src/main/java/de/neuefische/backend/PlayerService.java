@@ -61,13 +61,9 @@ public class PlayerService {
         repository.save(player);
     }
 
-    public List<ResponseComparePlayer> comparePlayer(String platform, String platformUserIdentifier) {
+    public ResponseComparePlayer comparePlayer(String platform, String platformUserIdentifier) {
 
-        if (comparisonPlayers.size() >= 2) {
-            comparisonPlayers.clear();
-        }
-
-        comparisonPlayers.add(webclient
+        ResponseComparePlayer r = (webclient
 
                 .get()
                 .uri("/" + platform + "/" + platformUserIdentifier)
@@ -78,7 +74,7 @@ public class PlayerService {
                 .getBody()
         );
 
-        return comparisonPlayers;
+        return r;
 
     }
 

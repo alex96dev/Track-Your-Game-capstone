@@ -43,8 +43,7 @@ public class PlayerService {
     }
 
     public List<Player> getAllPlayer() {
-        List<Player> listOfAllPlayer = repository.findAll();
-        return listOfAllPlayer;
+        return repository.findAll();
     }
 
     public void deletePlayerById(String id) throws PlayerDoesNotExistException {

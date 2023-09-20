@@ -34,12 +34,12 @@ function Homepage_Dropdown() {
     }
 
     function setTitleOfDropdown1RocketLeague() {
-        settitleofdropdown1("Rocket League");
+        settitleofdropdown1("CS:GO");
         setdropdownvalue1(titleofdropdown1);
     }
 
     function setTitleOfDropdown1CSGO() {
-        settitleofdropdown1("CS:GO");
+        settitleofdropdown1("Splitgate");
         setdropdownvalue1(titleofdropdown1);
     }
 
@@ -75,9 +75,9 @@ function Homepage_Dropdown() {
                 </button>
                 <ul className="dropdown-menu">
                     <li><a className="dropdown-item" onClick={setTitleOfDropdown1ToApexLegends}>Apex Legends</a></li>
-                    <li><a className="dropdown-item disabled" onClick={setTitleOfDropdown1RocketLeague}>Rocket League</a>
+                    <li><a className="dropdown-item" onClick={setTitleOfDropdown1RocketLeague}>CS:GO</a>
                     </li>
-                    <li><a className="dropdown-item disabled" onClick={setTitleOfDropdown1CSGO}>CS:GO</a></li>
+                    <li><a className="dropdown-item" onClick={setTitleOfDropdown1CSGO}>Splitgate</a></li>
                 </ul>
                 <br/><br/>
                 <button className="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown"

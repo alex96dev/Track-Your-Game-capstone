@@ -25,7 +25,7 @@ class FavouriteplayerControllerTest {
     private MongoDbRepository2 mongoDbRepository2;
 
     @Test
-    void getAllFavouritePlayer_ShouldReturnEmptyList_whenRepositoryIsEmpty() throws Exception{
+    void getAllFavouritePlayer_ShouldReturnEmptyList_whenRepositoryIsEmpty() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/api/fplayer/listofallplayer"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json("[]"));
@@ -33,7 +33,7 @@ class FavouriteplayerControllerTest {
 
     @DirtiesContext
     @Test
-    void getFavouritePlayerById_ShouldReturnPlayer() throws Exception{
+    void getFavouritePlayerById_ShouldReturnPlayer() throws Exception {
         Favouriteplayer favouriteplayer = new Favouriteplayer("1", "alex");
         mongoDbRepository2.save(favouriteplayer);
 
@@ -48,8 +48,9 @@ class FavouriteplayerControllerTest {
                 ));
     }
 
+    @DirtiesContext
     @Test
-    void getFavouritePlayerByName_ShouldReturnPlayer() throws Exception{
+    void getFavouritePlayerByName_ShouldReturnPlayer() throws Exception {
         Favouriteplayer favouriteplayer = new Favouriteplayer("1", "alex");
         mongoDbRepository2.save(favouriteplayer);
 
@@ -67,7 +68,7 @@ class FavouriteplayerControllerTest {
     @DirtiesContext
     @Test
     @WithMockUser(username = "a", password = "a")
-    void addFavouritePlayer_ShouldReturn200_WhenPlayerWasAddedSuccessfully() throws Exception{
+    void addFavouritePlayer_ShouldReturn200_WhenPlayerWasAddedSuccessfully() throws Exception {
         mvc.perform(MockMvcRequestBuilders.post("/api/fplayer/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(
@@ -85,7 +86,7 @@ class FavouriteplayerControllerTest {
     @DirtiesContext
     @Test
     @WithMockUser(username = "a", password = "a")
-    void deleteFavouritePlayerById() throws Exception{
+    void deleteFavouritePlayerById() throws Exception {
         Favouriteplayer favouriteplayer = new Favouriteplayer("1", "alex");
         mongoDbRepository2.save(favouriteplayer);
 
@@ -97,7 +98,7 @@ class FavouriteplayerControllerTest {
     @DirtiesContext
     @Test
     @WithMockUser(username = "a", password = "a")
-    void updateFavouritePlayerById_ShouldReturn200_WhenPlayerWasUpdatedSuccessfullyByRank() throws Exception{
+    void updateFavouritePlayerById_ShouldReturn200_WhenPlayerWasUpdatedSuccessfullyByRank() throws Exception {
         Favouriteplayer favouriteplayer = new Favouriteplayer("1", "alex");
         mongoDbRepository2.save(favouriteplayer);
 

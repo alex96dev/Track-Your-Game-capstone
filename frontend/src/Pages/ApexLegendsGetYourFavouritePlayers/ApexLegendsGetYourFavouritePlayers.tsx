@@ -100,15 +100,14 @@ export default function ApexLegendsGetYourFavouritePlayers() {
             <Button className={"btn btn-warning"} onClick={updateList}>Update List</Button>
             </div>
             <hr/>
-        <br/>
             <Button className="btn btn-light" onClick={() => setGoToHomepage(true)}>Back to Homepage</Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton className={"modalheader"}>
                     <Modal.Title>Save a Player to the list</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className={"modalbody"}>
-                    <input className={"inputfield_"} type="text" onChange={event => setInput(event.target.value)}/>
-                    <Button className={"btn btn-warning"} onClick={createUuid}>Confirm</Button>
+                    <p className={"save_player_name"}><a className={"save_player_name_a"}>Name: </a><input className={"inputfield_"} type="text" onChange={event => setInput(event.target.value)}/></p>
+                    <p className={"save_player_name"}><Button className={"btn btn-warning"} onClick={createUuid}>Confirm</Button></p>
                 </Modal.Body>
                 <Modal.Footer className={"modalfooter"}>
                     <Button className={"btn btn-warning"} variant="secondary" onClick={handleClose}>
@@ -121,8 +120,8 @@ export default function ApexLegendsGetYourFavouritePlayers() {
                     <Modal.Title>Delete a Player from the list</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className={"modalbody"}>
-                    <input className={"inputfield_"} type="text" onChange={event => setInput2(event.target.value)}/>
-                    <Button className={"btn btn-warning"} onClick={deleteFavouritePlayer}>Confirm</Button>
+                    <p className={"save_player_name"}><a className={"save_player_name_a"}>Name: </a><input className={"inputfield_"} type="text" onChange={event => setInput2(event.target.value)}/></p>
+                    <p className={"save_player_name"}><Button className={"btn btn-warning"} onClick={deleteFavouritePlayer}>Confirm</Button></p>
                 </Modal.Body>
                 <Modal.Footer className={"modalfooter"}>
                     <Button className={"btn btn-warning"} variant="secondary" onClick={handleClose2}>

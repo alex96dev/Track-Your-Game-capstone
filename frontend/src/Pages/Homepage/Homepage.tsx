@@ -18,14 +18,11 @@ function Homepage_Dropdown() {
 
     if (goToTop100Page) {
         return <Navigate to="/ApexLegendsTop100"/>;
-    }
-    else if (goToGetAPlayersRankPage){
+    } else if (goToGetAPlayersRankPage) {
         return <Navigate to="/ApexLegendsGetAPlayersRank"/>;
-    }
-    else if (goToGetYourFavouritePlayersPage){
+    } else if (goToGetYourFavouritePlayersPage) {
         return <Navigate to="/ApexLegendsGetYourFavouritePlayers"/>;
-    }
-    else if (goToCompare2PlayersStatsPage){
+    } else if (goToCompare2PlayersStatsPage) {
         return <Navigate to="/ApexLegendsCompare2PlayersStats"/>;
     }
 
@@ -66,9 +63,10 @@ function Homepage_Dropdown() {
     return (
         <div className={"div1"}>
             <div className={"title"}>
-                <h1>Track your Game</h1><br/>
+                <h1 className={"title_homepage_h1"}>Track your Game</h1>
             </div>
             <div className="dropdown">
+                <div className={"buttons_container"}>
                 <button className="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                     {titleofdropdown1}
@@ -79,7 +77,6 @@ function Homepage_Dropdown() {
                     </li>
                     <li><a className="dropdown-item" onClick={setTitleOfDropdown1CSGO}>Splitgate</a></li>
                 </ul>
-                <br/><br/>
                 <button className="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                     {titleofdropdown2}
@@ -92,15 +89,17 @@ function Homepage_Dropdown() {
                         stats</a></li>
                     <li><a className="dropdown-item" onClick={setGetTop100Ranked}>Get Top 100 (ranked)</a></li>
                 </ul>
-
-            <br/><br/><br/>
-            <button type="button" className="btn btn-light" onClick={() => {dropdownvalue1 === "Apex Legends" && dropdownvalue2 === "Get Top 100 (ranked)"?
-                setgoToTop100Page(true): dropdownvalue1 === "Apex Legends" && dropdownvalue2 === "Get a Players Rank"?
-                    setgoToGetAPlayersRankPage(true): dropdownvalue1 === "Apex Legends" && dropdownvalue2 === "Compare 2 players stats"?
-                        setgoToCompare2PlayersStatsPage(true): dropdownvalue1 === "Apex Legends" && dropdownvalue2 === "Get your favourite players"?
-                            setgoToGetYourFavouritePlayersPage(true):null
-            }}>Confirm
-            </button>
+                </div>
+                <div>
+                    <button type="button" className="btn btn-light" onClick={() => {
+                        dropdownvalue1 === "Apex Legends" && dropdownvalue2 === "Get Top 100 (ranked)" ?
+                            setgoToTop100Page(true) : dropdownvalue1 === "Apex Legends" && dropdownvalue2 === "Get a Players Rank" ?
+                                setgoToGetAPlayersRankPage(true) : dropdownvalue1 === "Apex Legends" && dropdownvalue2 === "Compare 2 players stats" ?
+                                    setgoToCompare2PlayersStatsPage(true) : dropdownvalue1 === "Apex Legends" && dropdownvalue2 === "Get your favourite players" ?
+                                        setgoToGetYourFavouritePlayersPage(true) : null
+                    }}>Confirm
+                    </button>
+                </div>
             </div>
         </div>
     )

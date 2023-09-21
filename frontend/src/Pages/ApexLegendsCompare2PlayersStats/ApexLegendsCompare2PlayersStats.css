@@ -8,6 +8,17 @@ body {
     color: #F7B538;
 }
 
+.hint{
+    font-family: Copperplate;
+    color: #F7B538;
+    font-weight: normal;
+}
+
+.title_compare{
+    font-size: xx-large;
+    font-weight: bold;
+}
+
 .list1{
     border-style: outset;
     border-radius: 15px;
@@ -46,4 +57,23 @@ p{
 
 .h2_compare{
     margin-bottom: 0px;
+}
+
+.inputfield_container1 {
+    border-style: solid;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+.inputfield_container2 {
+    border-style: solid;
+    border-radius: 15px;
+}
+
+.inputfield_container1_inside{
+    margin: 8px;
+}
+
+.inputfield_container2_inside{
+    margin: 8px;
 }

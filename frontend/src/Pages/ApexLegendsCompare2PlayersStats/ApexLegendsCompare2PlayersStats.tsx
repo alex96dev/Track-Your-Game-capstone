@@ -84,22 +84,29 @@ export default function ApexLegendsCompare2PlayersStats() {
 
     return (
         <div className={"div1"}>
-            <h1>Compare 2 Players Stats</h1>
+            <h2 className={"title_compare"}>Compare 2 Players Stats</h2>
             <hr/>
-            <h3>(Please notice: Platforms can only be the following: "origin", "psn", "xbl")</h3>
+            <h6 className={"hint"}>(Please notice: Platforms can only be the following: "origin", "psn", "xbl")</h6>
             <br/>
             <form>
+                <div className={"inputfield_container1"}>
+                <div className={"inputfield_container1_inside"}>
                 <label>Name of Player 1:</label>
                 <input className={"inputfield_"} type={"text"} onChange={event => setInput1(event.target.value)}/>
                 <label>Platform Player 1:</label>
                 <input className={"inputfield_"} type={"text"}
                        onChange={event => setInputPlatform(event.target.value)}/>
-                <br/><br/>
+                </div>
+                </div>
+                <div className={"inputfield_container2"}>
+                <div className={"inputfield_container2_inside"}>
                 <label>Name of Player 2:</label>
                 <input className={"inputfield_"} type={"text"} onChange={event => setInput2(event.target.value)}/>
                 <label>Platform Player 2:</label>
                 <input className={"inputfield_"} type={"text"}
                        onChange={event => setInputPlatform2(event.target.value)}/>
+                </div>
+                </div>
             </form>
             <br/>
             <Button className="btn btn-warning" onClick={comparePlayers}>Compare</Button>

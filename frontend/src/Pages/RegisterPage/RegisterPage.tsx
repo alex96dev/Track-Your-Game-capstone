@@ -2,6 +2,7 @@ import {ChangeEvent, FormEvent, useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import {Button} from "react-bootstrap";
+import "./RegisterPage.css"
 
 function RegisterPage() {
     const [username, setUsername] = useState("")
@@ -25,7 +26,7 @@ function RegisterPage() {
     }
 
     return (
-        <div className={"div1"}>
+        <div className={"div1_registerpage"}>
             <h1>Registration</h1>
             <form onSubmit={Register}>
                 <div className={"inputfield1"}>

@@ -31,7 +31,7 @@ function LoginPage(LoginPageProbs: Props) {
     }
 
     return (
-        <div className={"div1"}>
+        <div className={"div1_loginpage"}>
             <h1>Login</h1>
             <form onSubmit={Login}>
                 <div className="inputfield1">

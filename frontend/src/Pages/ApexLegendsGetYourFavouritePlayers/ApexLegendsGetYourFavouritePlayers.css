@@ -21,13 +21,20 @@
     color: black;
 }
 
+.save_player_name{
+    font-family: Copperplate;
+    color: #F7B538;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
 .modalfooter {
     background-color: #780116;
     color: black;
 }
 
-.buttons {
-
+.btn-warning {
+margin-bottom: 10px;
 }
 
 .btn-warning {
@@ -43,4 +50,15 @@ hr {
     height: 3px;
     background-color: #F7B538;
     color: #F7B538;
+}
+
+.inputfield_ {
+    margin-bottom: 10px;
+}
+
+.save_player_name_a {
+    margin-right: 5px;
+    font-family: Copperplate;
+    color: #F7B538;
+    font-weight: bold;
 }

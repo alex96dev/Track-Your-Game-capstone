@@ -1,5 +1,11 @@
+body{
+    margin: 0;
+    display: flex;
+    place-items: center;
+}
+
 .div1 {
-    min-width: 400px;
+
 }
 
 .inputfield1 {

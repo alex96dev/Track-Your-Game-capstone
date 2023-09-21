@@ -12,6 +12,14 @@ body {
     color: #F7B538;
 }
 
+.title_homepage_h1{
+    margin-bottom: 15px;
+}
+
 .dropdown {
     font-family: Copperplate;
+}
+
+.buttons_container{
+    margin-bottom: 15px;
 }

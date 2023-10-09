@@ -1,5 +1,13 @@
 .div1_registerpage {
     min-width: 400px;
+    border-style: solid;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.title_registerpage{
+    margin-bottom: 15px;
+    font-size: xxx-large;
 }
 
 .inputfield1 {
@@ -9,7 +17,7 @@
 
 .inputfield2 {
     min-width: 50%;
-    margin-bottom: 24px;
+    margin-bottom: 15px;
 }
 
 .inputfield {

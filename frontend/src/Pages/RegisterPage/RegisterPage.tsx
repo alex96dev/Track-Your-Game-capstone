@@ -27,7 +27,7 @@ function RegisterPage() {
 
     return (
         <div className={"div1_registerpage"}>
-            <h1>Registration</h1>
+            <div className={"title_registerpage"}>Registration</div>
             <form onSubmit={Register}>
                 <div className={"inputfield1"}>
                     <input className={"inputfield"} type="text" id="username" placeholder="please enter your username" required={true}

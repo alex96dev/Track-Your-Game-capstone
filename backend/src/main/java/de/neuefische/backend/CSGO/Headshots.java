@@ -1,15 +1,16 @@
-package de.neuefische.backend;
+package de.neuefische.backend.CSGO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Level {
+public class Headshots {
+
     String rank;
-    String value;
+
+    String displayValue;
 
 }

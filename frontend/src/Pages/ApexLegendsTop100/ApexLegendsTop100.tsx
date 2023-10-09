@@ -41,7 +41,7 @@ export default function ApexLegendsTop100() {
 
     return (
         <div className={"div1"}>
-            <h1>Apex Legends Top 100 (ranked)</h1>
+            <div className={"title_subpages"}>Apex Legends Top 100 (ranked)</div>
             <hr/>
             <ul className={"top100_list"}>
                 {top100list?.map(player => <li key={player.id}>{player.rank}: {player.name}</li>)}

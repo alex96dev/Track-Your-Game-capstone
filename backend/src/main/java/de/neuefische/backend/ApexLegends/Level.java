@@ -1,4 +1,4 @@
-package de.neuefische.backend;
+package de.neuefische.backend.ApexLegends;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,10 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Document
 @Data
+public class Level {
+    String rank;
+    String value;
 
-public class Favouriteplayer {
-    String id;
-    String name;
 }

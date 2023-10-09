@@ -1,5 +1,5 @@
 .div1 {
-    font-family: Copperplate;
+    font-family: "Arial Black";
     color: #F7B538;
     border-style: solid;
     border-radius: 15px;
@@ -7,7 +7,7 @@
 }
 
 .modal {
-    font-family: Copperplate;
+    font-family: "Arial Black";
     color: black;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .save_player_name{
-    font-family: Copperplate;
+    font-family: "Arial Black";
     color: #F7B538;
     margin-bottom: 5px;
     text-align: center;
@@ -58,7 +58,9 @@ hr {
 
 .save_player_name_a {
     margin-right: 5px;
-    font-family: Copperplate;
+    font-family: "Arial Black";
     color: #F7B538;
     font-weight: bold;
 }
+
+

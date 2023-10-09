@@ -1,17 +1,22 @@
 .div1_loginpage {
-border-radius: 15px;
+    border-radius: 15px;
     border-style: solid;
     padding: 15px;
 }
 
-.inputfield1 {
+.title_loginpage {
+    font-size: xxx-large;
+    margin-bottom: 15px;
+}
+
+.inputfield1_login {
     min-width: 50%;
     margin-bottom: 6px;
 }
 
-.inputfield2 {
+.inputfield2_login {
     min-width: 50%;
-    margin-bottom: 24px;
+    margin-bottom: 15px;
 }
 
 .inputfield {
@@ -27,6 +32,6 @@ border-radius: 15px;
     margin-bottom: 20px;
 }
 
-.registerlink{
-
+.registerlink_text {
+    color: cornflowerblue;
 }

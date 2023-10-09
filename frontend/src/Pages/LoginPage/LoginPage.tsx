@@ -32,14 +32,14 @@ function LoginPage(LoginPageProbs: Props) {
 
     return (
         <div className={"div1_loginpage"}>
-            <h1>Login</h1>
+            <div className={"title_loginpage"}>Login</div>
             <form onSubmit={Login}>
-                <div className="inputfield1">
+                <div className="inputfield1_login">
                     <input className={"inputfield"} type="text" id="username" placeholder="please enter your username"
                            required={true}
                            onChange={OnChangeEventHandlerUsername}></input>
                 </div>
-                <div className="inputfield2">
+                <div className="inputfield2_login">
                     <input className={"inputfield"} type="password" id="password"
                            placeholder="please enter your password" required={true}
                            onChange={OnChangeEventHandlerPassword}></input>
@@ -48,7 +48,7 @@ function LoginPage(LoginPageProbs: Props) {
                     <Button type={"submit"} variant={"btn btn-success"}>Login</Button>
                 </div>
                 <div className={"registerlink"}>
-                    <Link to={"/register"}>Not registered yet? Click here!</Link>
+                    <Link className={"registerlink_text"} to={"/register"}>Not registered yet? Click here!</Link>
                 </div>
             </form>
         </div>

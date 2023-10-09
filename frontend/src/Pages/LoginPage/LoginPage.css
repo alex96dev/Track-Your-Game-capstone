@@ -1,11 +1,7 @@
-body{
-    margin: 0;
-    display: flex;
-    place-items: center;
-}
-
-.div1 {
-
+.div1_loginpage {
+border-radius: 15px;
+    border-style: solid;
+    padding: 15px;
 }
 
 .inputfield1 {

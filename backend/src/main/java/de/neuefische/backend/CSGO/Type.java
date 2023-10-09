@@ -1,14 +1,14 @@
-package de.neuefische.backend;
+package de.neuefische.backend.CSGO;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@lombok.Data
+@Data
+public class Type {
 
-public class ResponseComparePlayer {
-
-    Data data;
+    Stats stats;
 
 }

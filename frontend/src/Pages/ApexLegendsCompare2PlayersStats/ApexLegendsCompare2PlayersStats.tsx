@@ -66,7 +66,7 @@ export default function ApexLegendsCompare2PlayersStats() {
 
         axios({
             method: 'get',
-            url: "/api/player/comparePlayer/" + inputPlatform + "/" + input1,
+            url: "/api/player/ApexLegendsComparePlayer/" + inputPlatform + "/" + input1,
         })
             .then((response) => {
                 setComparePlayerList1(response.data)
@@ -74,7 +74,7 @@ export default function ApexLegendsCompare2PlayersStats() {
             })
             .then(() => axios({
                 method: 'get',
-                url: "/api/player/comparePlayer/" + inputPlatform2 + "/" + input2,
+                url: "/api/player/ApexLegendsComparePlayer/" + inputPlatform2 + "/" + input2,
             })
                 .then((response) => {
                     setComparePlayerList2(response.data)
@@ -84,7 +84,7 @@ export default function ApexLegendsCompare2PlayersStats() {
 
     return (
         <div className={"div1"}>
-            <h2 className={"title_compare"}>Compare 2 Players Stats</h2>
+            <div className={"title_subpages"}>Compare 2 Players Stats</div>
             <hr/>
             <h6 className={"hint"}>(Please notice: Platforms can only be the following: "origin", "psn", "xbl")</h6>
             <br/>

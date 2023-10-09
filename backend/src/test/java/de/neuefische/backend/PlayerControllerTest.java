@@ -81,7 +81,7 @@ class PlayerControllerTest {
 
     @Test
     void comparePlayer() throws Exception{
-        mvc.perform(MockMvcRequestBuilders.get("/api/player/comparePlayer/psn/Daltoosh"))
+        mvc.perform(MockMvcRequestBuilders.get("/api/player/ApexLegendsComparePlayer/psn/Daltoosh"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json("""
                         {

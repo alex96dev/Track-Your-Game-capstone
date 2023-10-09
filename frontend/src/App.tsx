@@ -11,6 +11,15 @@ import {useState} from "react";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage.tsx";
 import ProtectedRoute from "./Pages/ProtectedRoute/ProtectedRoute.tsx";
 import Homepage_Dropdown from "./Pages/Homepage/Homepage.tsx";
+import CSGOCompare2PlayersStats from "./Pages/CSGOCompare2PlayersStats/CSGOCompare2PlayersStats.tsx";
+import SplitgateCompare2PlayersStats from "./Pages/SplitgateCompare2PlayersStats/SplitgateCompare2PlayersStats.tsx";
+import CSGOGetAPlayersRank from "./Pages/CSGOGetAPlayersRank/CSGOGetAPlayersRank.tsx";
+import CSGOGetYourFavouritePlayers from "./Pages/CSGOGetYourFavouritePlayers/CSGOGetYourFavouritePlayers.tsx";
+import CSGOTop100 from "./Pages/CSGOTop100/CSGOTop100.tsx";
+import SplitgateGetAPlayersRank from "./Pages/SplitgateGetAPlayersRank/SplitgateGetAPlayersRank.tsx";
+import SplitgateGetYourFavouritePlayers
+    from "./Pages/SplitgateGetYourFavouritePlayers/SplitgateGetYourFavouritePlayers.tsx";
+import SplitgateTop100 from "./Pages/SplitgateTop100/SplitgateTop100.tsx";
 
 
 function App() {
@@ -28,6 +37,14 @@ function App() {
                 <Route path="/ApexLegendsCompare2PlayersStats" element={<ApexLegendsCompare2PlayersStats/>}/>
                 <Route path="/ApexLegendsGetYourFavouritePlayers" element={<ApexLegendsGetYourFavouritePlayers/>}/>
                 <Route path="/ApexLegendsGetAPlayersRank" element={<ApexLegendsGetAPlayersRank/>}/>
+                <Route path="/CSGOCompare2PlayersStats" element={<CSGOCompare2PlayersStats/>}/>
+                <Route path="/CSGOGetAPlayersRank" element={<CSGOGetAPlayersRank/>}/>
+                <Route path="/CSGOGetYourFavouritePlayers" element={<CSGOGetYourFavouritePlayers/>}/>
+                <Route path="/CSGOTop100" element={<CSGOTop100/>}/>
+                <Route path="/SplitgateCompare2PlayersStats" element={<SplitgateCompare2PlayersStats/>}/>
+                <Route path="/SplitgateGetAPlayersRank" element={<SplitgateGetAPlayersRank/>}/>
+                <Route path="/SplitgateGetYourFavouritePlayers" element={<SplitgateGetYourFavouritePlayers/>}/>
+                <Route path="/SplitgateTop100" element={<SplitgateTop100/>}/>
             </Route>
         </Routes>
         </>

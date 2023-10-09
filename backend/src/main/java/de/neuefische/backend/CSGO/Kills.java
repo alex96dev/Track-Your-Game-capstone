@@ -1,15 +1,16 @@
-package de.neuefische.backend;
+package de.neuefische.backend.CSGO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Type {
+public class Kills {
 
-    Stats stats;
+    String rank;
+
+    String displayValue;
 
 }

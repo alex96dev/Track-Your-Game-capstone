@@ -1,4 +1,4 @@
-package de.neuefische.backend;
+package de.neuefische.backend.ApexLegends;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,13 +8,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Stats {
+public class MatchesPlayed {
 
-    Level level;
-    Kills kills;
-
-    Damage damage;
-
-    MatchesPlayed matchesPlayed;
+    String rank;
+    String value;
 
 }

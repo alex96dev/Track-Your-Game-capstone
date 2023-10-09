@@ -8,18 +8,32 @@ body {
 }
 
 .title {
-    font-family: Copperplate;
+    font-family: "Arial Black";
     color: #F7B538;
-}
-
-.title_homepage_h1{
     margin-bottom: 15px;
 }
 
+.title_homepage_h1{
+    font-family: "Arial Black";
+    margin-bottom: 15px;
+    font-size: xxx-large;
+}
+
 .dropdown {
-    font-family: Copperplate;
+    font-family: "Arial Black";
 }
 
 .buttons_container{
     margin-bottom: 15px;
+}
+
+.titleofdropdown1_hompage {
+    color: black;
+}
+
+.titleofdropdown2_hompage{
+    color: black;
+}
+.titleofconfirmbutton_hompage{
+    color: black;
 }

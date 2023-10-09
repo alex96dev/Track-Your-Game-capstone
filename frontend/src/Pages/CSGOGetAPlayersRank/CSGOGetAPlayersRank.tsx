@@ -1,4 +1,4 @@
-import "./ApexLegendsGetAPlayersRank.css"
+import "./CSGOGetAPlayersRank.css"
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {Button, Modal} from "react-bootstrap";
@@ -15,7 +15,7 @@ type Player = {
     wins: string;
 }
 
-export default function ApexLegendsGetAPlayersRank() {
+export default function CSGOGetAPlayersRank() {
     const [input, setInput] = useState("");
     const [playerrank, setPlayerrank] = useState("");
     const [playername, setPlayername] = useState("");
@@ -66,11 +66,11 @@ export default function ApexLegendsGetAPlayersRank() {
             <hr/>
             <form>
                 <div className={"label_inputfield1"}>
-                <label className="label">Type in a players Name:</label><a> </a>
-                <input className={"inputfield_"} type="text" onChange={event => setInput(event.target.value)}/>
+                    <label className="label">Type in a players Name:</label><a> </a>
+                    <input className={"inputfield_"} type="text" onChange={event => setInput(event.target.value)}/>
                 </div>
                 <div className={"showmetherank"}>
-                <Button className="btn btn-warning" onClick={getRank}>Show me the rank</Button>
+                    <Button className="btn btn-warning" onClick={getRank}>Show me the rank</Button>
                 </div>
 
                 <Button className="btn btn-warning" onClick={handleShow2}>Show me all Player names (Top 100)</Button>

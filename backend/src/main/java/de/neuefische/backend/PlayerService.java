@@ -1,5 +1,7 @@
 package de.neuefische.backend;
 
+import de.neuefische.backend.ApexLegends.ApexLegendsResponseComparePlayer;
+import de.neuefische.backend.CSGO.CSGOResponseComparePlayer;
 import lombok.AllArgsConstructor;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -13,9 +15,10 @@ public class PlayerService {
 
     private MongoDbRepository repository;
 
-    private final WebClient webclient = WebClient.create("https://public-api.tracker.gg/v2/apex/standard/profile");
+    private final WebClient webclientApexLegends = WebClient.create("https://public-api.tracker.gg/v2/apex/standard/profile");
+    private final WebClient webclientCSGO = WebClient.create("https://public-api.tracker.gg/v2/csgo/standard/profile/");
 
-    ArrayList<ResponseComparePlayer> comparisonPlayers = new ArrayList<>();
+    ArrayList<ApexLegendsResponseComparePlayer> comparisonPlayers = new ArrayList<>();
 
 
     public void addPlayer(Player player) throws PlayerAlreadyExistException {
@@ -60,20 +63,36 @@ public class PlayerService {
         repository.save(player);
     }
 
-    public ResponseComparePlayer comparePlayer(String platform, String platformUserIdentifier) {
+    public ApexLegendsResponseComparePlayer compareApexLegendsPlayer(String platform, String platformUserIdentifier) {
 
-        ResponseComparePlayer r = (webclient
+        ApexLegendsResponseComparePlayer apexLegendsResponseComparePlayer = (webclientApexLegends
 
                 .get()
                 .uri("/" + platform + "/" + platformUserIdentifier)
                 .header("TRN-Api-Key", "b15b3e2f-1624-453b-a0de-09e000b39418")
                 .retrieve()
-                .toEntity(ResponseComparePlayer.class)
+                .toEntity(ApexLegendsResponseComparePlayer.class)
                 .block()
                 .getBody()
         );
 
-        return r;
+        return apexLegendsResponseComparePlayer;
+
+    }
+    public CSGOResponseComparePlayer compareCSGOPlayer(String platform, String platformUserIdentifier) {
+
+        CSGOResponseComparePlayer csgoResponseComparePlayer = (webclientCSGO
+
+                .get()
+                .uri("/" + platform + "/" + platformUserIdentifier)
+                .header("TRN-Api-Key", "b15b3e2f-1624-453b-a0de-09e000b39418")
+                .retrieve()
+                .toEntity(CSGOResponseComparePlayer.class)
+                .block()
+                .getBody()
+        );
+
+        return csgoResponseComparePlayer;
 
     }
 

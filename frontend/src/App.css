@@ -4,3 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
+
+* {
+  font-family: "Arial Black";
+}
+
+.title_subpages{
+  font-size: xxx-large;
+}

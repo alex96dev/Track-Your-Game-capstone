@@ -3,14 +3,14 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import {Navigate} from "react-router-dom";
-import "./ApexLegendsGetYourFavouritePlayers.css"
+import "./CSGOGetYourFavouritePlayers.css"
 
 type Favouriteplayer = {
     id: string;
     name: string;
 }
 
-export default function ApexLegendsGetYourFavouritePlayers() {
+export default function CSGOGetYourFavouritePlayers() {
 
     const [listofallfavouriteplayer, setListofallfavouriteplayer] = useState<Favouriteplayer[]>()
     const [show, setShow] = useState(false)
@@ -28,7 +28,7 @@ export default function ApexLegendsGetYourFavouritePlayers() {
     useEffect(() => {
         axios({
             method: 'get',
-            url: "/api/fplayerapex/listofallplayer",
+            url: "/api/fplayercsgo/listofallplayer",
         })
             .then((response) => {
                 setListofallfavouriteplayer(response.data)
@@ -40,7 +40,7 @@ export default function ApexLegendsGetYourFavouritePlayers() {
     useEffect(() => {
         axios({
             method: 'post',
-            url: "/api/fplayerapex/" + uuid,
+            url: "/api/fplayercsgo/" + uuid,
             data: {
                 id: uuid,
                 name: input
@@ -58,12 +58,12 @@ export default function ApexLegendsGetYourFavouritePlayers() {
 
         axios({
             method: 'get',
-            url: "/api/fplayerapex/name/" + input2,
+            url: "/api/fplayercsgo/name/" + input2,
         })
             .then((response) => {
                 axios({
                     method: 'delete',
-                    url: "/api/fplayerapex/" + response.data.id,
+                    url: "/api/fplayercsgo/" + response.data.id,
                 })
             })
 
@@ -72,7 +72,7 @@ export default function ApexLegendsGetYourFavouritePlayers() {
     function updateList() {
         axios({
             method: 'get',
-            url: "/api/fplayerapex/listofallplayer",
+            url: "/api/fplayercsgo/listofallplayer",
         })
             .then((response) => {
                 setListofallfavouriteplayer(response.data)
@@ -95,9 +95,9 @@ export default function ApexLegendsGetYourFavouritePlayers() {
             </ul>
             <hr/>
             <div className={"buttons"}>
-            <Button className={"btn btn-warning"} onClick={handleShow}>Save new Player</Button>
-            <Button className={"btn btn-warning"} onClick={handleShow2}>Delete Player</Button>
-            <Button className={"btn btn-warning"} onClick={updateList}>Update List</Button>
+                <Button className={"btn btn-warning"} onClick={handleShow}>Save new Player</Button>
+                <Button className={"btn btn-warning"} onClick={handleShow2}>Delete Player</Button>
+                <Button className={"btn btn-warning"} onClick={updateList}>Update List</Button>
             </div>
             <hr/>
             <Button className="btn btn-light" onClick={() => setGoToHomepage(true)}>Back to Homepage</Button>

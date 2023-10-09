@@ -1,9 +1,10 @@
 package de.neuefische.backend;
 
+import de.neuefische.backend.ApexLegends.ApexLegendsResponseComparePlayer;
+import de.neuefische.backend.CSGO.CSGOResponseComparePlayer;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -30,9 +31,13 @@ public class PlayerController {
         return service.getPlayerByName(name);
     }
 
-    @GetMapping("/comparePlayer/{platform}/{platformUserIdentifier}")
-    public ResponseComparePlayer comparePlayer(@PathVariable String platform, @PathVariable String platformUserIdentifier){
-        return service.comparePlayer(platform, platformUserIdentifier);
+    @GetMapping("/ApexLegendsComparePlayer/{platform}/{platformUserIdentifier}")
+    public ApexLegendsResponseComparePlayer compareApexLegendsPlayer(@PathVariable String platform, @PathVariable String platformUserIdentifier){
+        return service.compareApexLegendsPlayer(platform, platformUserIdentifier);
+    }
+    @GetMapping("/CSGOComparePlayer/{platform}/{platformUserIdentifier}")
+    public CSGOResponseComparePlayer compareCSGOPlayer(@PathVariable String platform, @PathVariable String platformUserIdentifier){
+        return service.compareCSGOPlayer(platform, platformUserIdentifier);
     }
 
     /*@GetMapping("/comparePlayer/{platform}/{platformUserIdentifier}")

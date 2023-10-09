@@ -27,7 +27,7 @@ class FavouritePlayerControllerApexTest {
 
     @Test
     void getAllFavouritePlayer_ShouldReturnEmptyList_whenRepositoryIsEmpty() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/api/fplayer/listofallplayer"))
+        mvc.perform(MockMvcRequestBuilders.get("/api/fplayerapex/listofallplayer"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json("[]"));
     }
@@ -38,7 +38,7 @@ class FavouritePlayerControllerApexTest {
         FavouritePlayerApex favouriteplayerapex = new FavouritePlayerApex("1", "alex");
         mongoDbRepository2.save(favouriteplayerapex);
 
-        mvc.perform(MockMvcRequestBuilders.get("/api/fplayer/1"))
+        mvc.perform(MockMvcRequestBuilders.get("/api/fplayerapex/1"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json("""
                         {
@@ -55,7 +55,7 @@ class FavouritePlayerControllerApexTest {
         FavouritePlayerApex favouriteplayer = new FavouritePlayerApex("1", "alex");
         mongoDbRepository2.save(favouriteplayer);
 
-        mvc.perform(MockMvcRequestBuilders.get("/api/fplayer/name/alex"))
+        mvc.perform(MockMvcRequestBuilders.get("/api/fplayerapex/name/alex"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json("""
                         {
@@ -70,7 +70,7 @@ class FavouritePlayerControllerApexTest {
     @Test
     @WithMockUser(username = "a", password = "a")
     void addFavouritePlayer_ShouldReturn200_WhenPlayerWasAddedSuccessfully() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.post("/api/fplayer/1")
+        mvc.perform(MockMvcRequestBuilders.post("/api/fplayerapex/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(
                                 """
@@ -91,7 +91,7 @@ class FavouritePlayerControllerApexTest {
         FavouritePlayerApex favouriteplayerapex = new FavouritePlayerApex("1", "alex");
         mongoDbRepository2.save(favouriteplayerapex);
 
-        mvc.perform(MockMvcRequestBuilders.delete("/api/fplayer/1")
+        mvc.perform(MockMvcRequestBuilders.delete("/api/fplayerapex/1")
                         .with(csrf()))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
@@ -103,7 +103,7 @@ class FavouritePlayerControllerApexTest {
         FavouritePlayerApex favouriteplayerapex = new FavouritePlayerApex("1", "alex");
         mongoDbRepository2.save(favouriteplayerapex);
 
-        mvc.perform(MockMvcRequestBuilders.put("/api/fplayer/1")
+        mvc.perform(MockMvcRequestBuilders.put("/api/fplayerapex/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(
                                 """
